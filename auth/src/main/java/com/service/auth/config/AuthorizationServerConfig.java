@@ -77,7 +77,7 @@ public class AuthorizationServerConfig {
 
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient userServiceClient = RegisteredClient.withId(UUID.randomUUID().toString())
+        RegisteredClient userServiceClient = RegisteredClient.withId("user-service")
                 .clientId("user-service-client")
                 .clientSecret("{noop}user-service-secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)

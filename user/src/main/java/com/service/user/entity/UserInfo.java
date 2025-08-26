@@ -26,10 +26,6 @@ public class UserInfo extends CmnBaseCUDEntity {
     @Column(name = "COM_CD", nullable = false, length = 50)
     private String comCd;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    private UserAuth userAuth;
-
     @jakarta.validation.constraints.Size(max = 50)
     @Column(name = "USER_NAME", length = 50)
     private String userName;

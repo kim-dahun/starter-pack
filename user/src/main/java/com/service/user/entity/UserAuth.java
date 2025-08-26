@@ -1,6 +1,6 @@
 package com.service.user.entity;
 
-import com.service.user.entity.id.UserAuthId;
+import com.service.user.entity.id.UserInfoId;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Getter
 @Setter
-@IdClass(UserAuthId.class)
+@IdClass(UserInfoId.class)
 @Entity
 @Table(name = "USER_AUTH", schema = "USER_MANAGE")
 public class UserAuth extends CmnBaseCUDEntity implements UserDetails {
@@ -34,8 +34,8 @@ public class UserAuth extends CmnBaseCUDEntity implements UserDetails {
     @Column(name = "USER_ID", nullable = false, length = 50)
     private String userId;
 
-    @jakarta.validation.constraints.Size(max = 50)
-    @Column(name = "USER_PASSWORD", length = 50)
+    @jakarta.validation.constraints.Size(max = 150)
+    @Column(name = "USER_PASSWORD", length = 150)
     private String userPassword;
 
     @jakarta.validation.constraints.Size(max = 100)
@@ -45,6 +45,14 @@ public class UserAuth extends CmnBaseCUDEntity implements UserDetails {
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private List<String> roles = new ArrayList<>();
+
+    // 필요시 UserInfo 참조 추가 (단방향)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", insertable = false, updatable = false),
+            @JoinColumn(name = "COM_CD", referencedColumnName = "COM_CD", insertable = false, updatable = false)
+    })
+    private UserInfo userInfo;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

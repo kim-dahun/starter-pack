@@ -1,6 +1,6 @@
 package com.service.user.config.security;
 
-import com.service.user.entity.id.UserAuthId;
+import com.service.user.entity.id.UserInfoId;
 import com.service.user.repository.UserAuthRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
             // 복합 키로 사용자 조회
             return userAuthRepository.findById(
-                    new UserAuthId(comCd, username)
+                    new UserInfoId(comCd, username)
             ).orElseThrow(() -> new UsernameNotFoundException(username + " not found"));
         } catch (Exception e) {
             throw new UsernameNotFoundException("Error loading user: " + e.getMessage(), e);

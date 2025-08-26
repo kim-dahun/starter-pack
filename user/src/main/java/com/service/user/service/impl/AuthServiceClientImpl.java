@@ -49,7 +49,7 @@ public class AuthServiceClientImpl implements AuthServiceClient {
         OAuth2AccessToken accessToken = getAccessToken();
 
         // 액세스 토큰으로 사용자 토큰 요청
-        com.service.user.vo.request.TokenRequest request = new TokenRequest(userId, comCd, roles);
+        TokenRequest request = new TokenRequest(userId, comCd, roles);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken.getTokenValue());
