@@ -66,7 +66,7 @@ public class UserAuthServiceImpl implements UserAuthService {
             return ResponseEntity.status(200).headers(headers).body(responseUserAuthVo);
 
         } catch (Exception e){
-            throw new RuntimeException(e);
+            return ResponseEntity.status(500).body(responseUserAuthVo);
         }
     }
 

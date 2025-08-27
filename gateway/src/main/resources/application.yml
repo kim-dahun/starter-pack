@@ -1,12 +1,51 @@
+server:
+  port: 8000
+
 spring:
   application:
-    name: gate-way
-logging:
-  level:
-    org:
-      hibernate:
-        type:
-          descriptor:
-            sql: debug  # query? ?? ?? ?? ????? ??? ? ?? ?????. TRACE Log? ?? ?????.
-file:
-  dir: ${fileDir}
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:4000
+          predicates:
+            - Path=/api/v1/user-service/**
+          filters:
+            - RewritePath=/api/v1/user-service/(?<segment>.*), /api/v1/user-service/$\{segment}
+            - name: TokenValidationFilter
+              args:
+                excludedPaths: /api/v1/user-service/login,/api/v1/user-service/signup
+            - name: CircuitBreaker
+              args:
+                name: userServiceCircuitBreaker
+                fallbackUri: forward:/fallback
+
+        # 다른 서비스들에 대한 라우팅 설정 추가 가능
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+
+      # CORS 설정
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+
+# 토큰 검증 API 설정
+token:
+  validation:
+    url: http://localhost:4000/api
+
+# Actuator 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

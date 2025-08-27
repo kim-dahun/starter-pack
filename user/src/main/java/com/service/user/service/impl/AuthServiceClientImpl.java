@@ -1,5 +1,8 @@
 package com.service.user.service.impl;
 
+import com.service.user.entity.UserAuth;
+import com.service.user.jwt.JwtTokenProvider;
+import com.service.user.repository.UserAuthRepository;
 import com.service.user.service.AuthServiceClient;
 import com.service.user.vo.request.TokenRequest;
 import com.service.user.vo.response.TokenResponse;
@@ -7,60 +10,56 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.security.oauth2.client.OAuth2AuthorizeRequest;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
-import org.springframework.security.oauth2.core.OAuth2AccessToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class AuthServiceClientImpl implements AuthServiceClient {
 
 
-    private final RestTemplate restTemplate;
-    private final OAuth2AuthorizedClientManager authorizedClientManager;
-
-    @Value("${spring.security.oauth2.client.provider.auth-service.token-uri}")
-    private String tokenUri;
-
-    /**
-     * OAuth2 클라이언트 자격 증명 방식으로 액세스 토큰 획득
-     */
-    private OAuth2AccessToken getAccessToken() {
-        OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest.withClientRegistrationId("auth-service")
-                .principal("user-service")
-                .build();
-
-        OAuth2AuthorizedClient authorizedClient = authorizedClientManager.authorize(authorizeRequest);
-        return Objects.requireNonNull(authorizedClient).getAccessToken();
-    }
+    private final JwtTokenProvider jwtTokenProvider;
+    private final UserAuthRepository userAuthRepository;
 
     /**
      * 사용자 로그인을 위한 토큰 요청
      */
     @Override
     public TokenResponse getUserToken(String userId, String comCd, List<String> roles) {
-        // 클라이언트 자격 증명으로 액세스 토큰 획득
-        OAuth2AccessToken accessToken = getAccessToken();
+        // UserAuth 정보 조회
+        UserAuth userAuth = userAuthRepository.findByComCdAndUserId(comCd, userId)
+                .orElseThrow(() -> new RuntimeException("사용자 정보를 찾을 수 없습니다."));
 
-        // 액세스 토큰으로 사용자 토큰 요청
-        TokenRequest request = new TokenRequest(userId, comCd, roles);
+        // 역할 설정 (외부에서 전달받은 역할로 덮어쓰기)
+        userAuth.setRoles(roles);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(accessToken.getTokenValue());
-
-        HttpEntity<TokenRequest> entity = new HttpEntity<>(request, headers);
-
-        return restTemplate.postForObject(
-                tokenUri + "/user",  // 사용자 토큰 발급 엔드포인트
-                entity,
-                TokenResponse.class
+        // 인증 객체 생성
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+                userAuth,
+                null,
+                roles.stream()
+                        .map(SimpleGrantedAuthority::new)
+                        .collect(Collectors.toList())
         );
+
+        // 토큰 생성
+        String accessToken = jwtTokenProvider.createToken(authentication);
+        String refreshToken = jwtTokenProvider.createRefreshToken(authentication);
+
+        // 토큰 응답 생성
+        return TokenResponse.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .tokenType("Bearer")
+                .expiresIn(3600) // 토큰 유효시간 (초)
+                .build();
     }
 
     /**
@@ -68,19 +67,48 @@ public class AuthServiceClientImpl implements AuthServiceClient {
      */
     @Override
     public boolean validateToken(String token) {
-        // 클라이언트 자격 증명으로 액세스 토큰 획득
-        OAuth2AccessToken accessToken = getAccessToken();
+        return jwtTokenProvider.validateToken(token);
+    }
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(accessToken.getTokenValue());
+    /**
+     * 리프레시 토큰으로 새 액세스 토큰 발급
+     */
+    @Override
+    public TokenResponse refreshToken(String refreshToken) {
+        // 리프레시 토큰 유효성 검사
+        if (!jwtTokenProvider.validateToken(refreshToken)) {
+            throw new RuntimeException("Invalid refresh token");
+        }
 
-        HttpEntity<String> entity = new HttpEntity<>(token, headers);
+        try {
+            // 리프레시 토큰에서 사용자 정보 추출
+            String userId = jwtTokenProvider.getUserIdFromToken(refreshToken);
+            String comCd = jwtTokenProvider.getComCdFromToken(refreshToken);
 
-        return Boolean.TRUE.equals(restTemplate.postForObject(
-                tokenUri + "/validate",  // 토큰 검증 엔드포인트
-                entity,
-                Boolean.class
-        ));
+            // 사용자 정보 조회
+            UserAuth userAuth = userAuthRepository.findByComCdAndUserId(comCd, userId)
+                    .orElseThrow(() -> new RuntimeException("User not found with userId: " + userId + " and comCd: " + comCd));
+
+            // 인증 객체 생성
+            Authentication authentication = new UsernamePasswordAuthenticationToken(
+                    userAuth,
+                    null,
+                    userAuth.getAuthorities()
+            );
+
+            // 새 액세스 토큰 생성 (리프레시 토큰은 재사용)
+            String newAccessToken = jwtTokenProvider.createToken(authentication);
+
+            return TokenResponse.builder()
+                    .accessToken(newAccessToken)
+                    .refreshToken(refreshToken) // 기존 리프레시 토큰 유지
+                    .tokenType("Bearer")
+                    .expiresIn(3600) // 토큰 유효시간 (초)
+                    .build();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error refreshing token: " + e.getMessage(), e);
+        }
     }
 
 }
