@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34ef5f50-a18c-4a73-a9ad-8b7179dbced7" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/config/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/controller/FallbackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/filter/TokenValidationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/MessageConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/UserAuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/jwt/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/AuthApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/config/AuthorizationServerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/entity/OAuthKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/repository/OAuthKeyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/schedule/KeyRotationScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/service/KeyManagementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/auth/service/impl/KeyManagementServiceImplV1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/service/auth/AuthApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/oauth/OAuth2ClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/repository/UserAuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/repository/UserAuthRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/TokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/TokenResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="34ef5f50-a18c-4a73-a9ad-8b7179dbced7" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,40 +77,40 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.UserApplicationTests.userCreate.executor": "Run",
-    "Gradle.auth 빌드.executor": "Run",
-    "Gradle.user [build].executor": "Run",
-    "Gradle.user [clean].executor": "Run",
-    "Gradle.user 빌드.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AuthApplication.executor": "Run",
-    "Spring Boot.UserApplication.executor": "Run",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/workSpace/starter-pack/starter-pack/auth/src/main/java/com/service/auth",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.UserApplicationTests.userCreate.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.auth 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.user [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.user [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.user 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AuthApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/starter-pack/starter-pack/auth/src/main/java/com/service/auth&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\workSpace\starter-pack\starter-pack\auth\src\main\java\com\service\auth" />
@@ -259,21 +220,6 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <envs>
-        <env name="fileDir" value="C:\servFile" />
-        <env name="jwtSecret" value="VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHaasdfasfsefawefawefawefawefawefawefawefawe432432fe2362623342" />
-        <env name="password" value="ADMINUSER" />
-        <env name="url" value="jdbc:mariadb://158.180.75.120:3306/USER_MANAGE" />
-        <env name="username" value="ADMINUSER" />
-      </envs>
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="auth.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.service.auth.AuthApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="gateway.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.service.gateway.GatewayApplication" />
@@ -299,7 +245,6 @@
       <item itemvalue="Gradle.UserApplicationTests.userCreate" />
       <item itemvalue="Gradle.user [build]" />
       <item itemvalue="Gradle.user [clean]" />
-      <item itemvalue="Spring Boot.AuthApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.UserApplication" />
     </list>
@@ -331,7 +276,7 @@
       <workItem from="1756198635497" duration="2001000" />
       <workItem from="1756205396961" duration="8353000" />
       <workItem from="1756213793455" duration="4821000" />
-      <workItem from="1756291411261" duration="11062000" />
+      <workItem from="1756291411261" duration="11220000" />
     </task>
     <servers />
   </component>
