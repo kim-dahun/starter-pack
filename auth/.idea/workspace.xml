@@ -4,7 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34ef5f50-a18c-4a73-a9ad-8b7179dbced7" name="변경" comment="" />
+    <list default="true" id="34ef5f50-a18c-4a73-a9ad-8b7179dbced7" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/UrlConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web_front/src/common/model/httpModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web_front/src/util/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/src/test/java/com/service/gateway/GatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/test/java/com/service/gateway/GatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/restTemplate/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/restTemplate/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/MessageConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/MessageConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/UserAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/UserAuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/entity/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/entity/UserAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/filter/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/jwt/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/UserAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/UserAuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/data/UserInfoVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/data/UserInfoVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/ResponseUserAuthVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/ResponseUserAuthVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/test/java/com/service/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/test/java/com/service/user/UserApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_front/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/app/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_front/src/contexts/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/contexts/AuthContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_front/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/middleware.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,12 +127,15 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/starter-pack/starter-pack/auth/src/main/java/com/service/auth&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/starter-pack/starter-pack/gateway&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -131,7 +166,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.UserApplicationTests.userCreate">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="UserApplicationTests.userCreate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="env">
@@ -209,17 +244,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="gateway" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gateway" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="gateway.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.service.gateway.GatewayApplication" />
@@ -277,6 +301,9 @@
       <workItem from="1756205396961" duration="8353000" />
       <workItem from="1756213793455" duration="4821000" />
       <workItem from="1756291411261" duration="11220000" />
+      <workItem from="1756612913294" duration="47000" />
+      <workItem from="1756612967114" duration="129000" />
+      <workItem from="1756615511596" duration="615000" />
     </task>
     <servers />
   </component>

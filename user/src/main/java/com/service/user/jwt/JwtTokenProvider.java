@@ -14,10 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -27,6 +25,24 @@ public class JwtTokenProvider {
     private final Key key;
     private final long tokenValidityInMilliseconds;
     private final long refreshTokenValidityInMilliseconds;
+    private final Set<String> tokenBlacklist = ConcurrentHashMap.newKeySet();
+
+    /**
+     * 토큰을 무효화하여 블랙리스트에 추가합니다.
+     * @param token 무효화할 JWT 토큰
+     */
+    public void invalidateToken(String token) {
+        tokenBlacklist.add(token);
+    }
+
+    /**
+     * 토큰이 블랙리스트에 있는지 확인합니다.
+     * @param token 확인할 JWT 토큰
+     * @return 블랙리스트에 있으면 true, 그렇지 않으면 false
+     */
+    public boolean isTokenBlacklisted(String token) {
+        return tokenBlacklist.contains(token);
+    }
 
     public JwtTokenProvider(@Value("${jwt.secret}") String secret,
                             @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds,
@@ -158,6 +174,9 @@ public class JwtTokenProvider {
 
     // 토큰 검증
     public boolean validateToken(String token) {
+        if (isTokenBlacklisted(token)) {
+            return false;
+        }
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;

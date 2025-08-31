@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 
 export default function ProfilePage() {
     const { user } = useAuth();
-    const [name, setName] = useState(user?.name || '');
+    const [name, setName] = useState(user?.userName || '');
     const [email, setEmail] = useState(user?.email || '');
     const [phone, setPhone] = useState('010-1234-5678');
     const [position, setPosition] = useState('개발자');
@@ -41,7 +41,7 @@ export default function ProfilePage() {
                             <div className="w-32 h-32 bg-gray-300 dark:bg-gray-700 rounded-full mb-4 overflow-hidden flex items-center justify-center">
                                 {user && (
                                     <span className="text-4xl text-gray-600 dark:text-gray-300">
-                                        {user.name.charAt(0).toUpperCase()}
+                                        {user.userName.charAt(0).toUpperCase()}
                                     </span>
                                 )}
                             </div>

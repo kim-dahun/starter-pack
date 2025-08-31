@@ -19,4 +19,6 @@ public interface AuthServiceClient {
      * 리프레시 토큰으로 새 액세스 토큰 발급
      */
     TokenResponse refreshToken(String refreshToken);
+
+    void invalidateToken(String refreshToken);
 }

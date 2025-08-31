@@ -111,4 +111,9 @@ public class AuthServiceClientImpl implements AuthServiceClient {
         }
     }
 
+    @Override
+    public void invalidateToken(String token) {
+        jwtTokenProvider.invalidateToken(token);
+    }
+
 }

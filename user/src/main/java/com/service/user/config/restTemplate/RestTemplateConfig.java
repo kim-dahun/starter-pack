@@ -27,14 +27,14 @@ public class RestTemplateConfig {
         };
     }
 
-    /**
-     * 로깅 인터셉터가 포함된 RestTemplate (선택 사항)
-     */
-    @Bean
-    public RestTemplate loggingRestTemplate(RestTemplateBuilder builder, ClientHttpRequestInterceptor loggingInterceptor) {
-        return builder
-                .requestFactorySettings((requestFactorySettings)->requestFactorySettings.withConnectTimeout(Duration.ofSeconds(30)).withReadTimeout(Duration.ofSeconds(10)))
-                .additionalInterceptors(loggingInterceptor)
-                .build();
-    }
+//    /**
+//     * 로깅 인터셉터가 포함된 RestTemplate (선택 사항)
+//     */
+//    @Bean
+//    public RestTemplate loggingRestTemplate(RestTemplateBuilder builder, ClientHttpRequestInterceptor loggingInterceptor) {
+//        return builder
+//                .requestFactorySettings((requestFactorySettings)->requestFactorySettings.withConnectTimeout(Duration.ofSeconds(30)).withReadTimeout(Duration.ofSeconds(10)))
+//                .additionalInterceptors(loggingInterceptor)
+//                .build();
+//    }
 }

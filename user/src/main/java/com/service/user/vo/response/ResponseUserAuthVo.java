@@ -16,6 +16,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ResponseUserAuthVo extends CmnResponseVo {
 
-    private UserInfoVo userInfoVo;
+    private UserInfoVo data;
 
 }

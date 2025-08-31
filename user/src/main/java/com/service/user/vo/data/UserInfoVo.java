@@ -17,11 +17,15 @@ public class UserInfoVo {
 
     private String comNm;
 
+    private String userPassword;
+
     private String userName;
     private String phone;
     private String email;
     private String userType;
     private String birthDay;
+
+    private String status;
 
     public UserInfoVo(UserInfo userInfo) {
         this.userId = userInfo.getUserId();
@@ -32,6 +36,15 @@ public class UserInfoVo {
         this.userType = userInfo.getUserType();
         this.birthDay = userInfo.getBirthDay();
 
+    }
+
+    public UserAuth toAuthEntity() {
+        return UserAuth.builder()
+                .userId(userId)
+                .comCd(comCd)
+                .userPassword(userPassword)
+                .status(status)
+                .build();
     }
 
     public UserInfo toEntity() {

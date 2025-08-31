@@ -2,19 +2,27 @@
 
 import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { getCookie, setCookie, deleteCookie } from 'cookies-next';
-
+import api from "@/util/axios";
+import {CommonResponse, HttpResponse} from "@/common/model/httpModel";
+import {api_login, api_logout} from "@/api/userApi";
 interface User {
-    id: string;
-    name: string;
+    userId: string;
+    userName: string;
     email: string;
+    phone: string;
+    comCd: string;
     role: string;
+
+}
+
+export interface UserResponse extends CommonResponse {
+    data : User;
 }
 
 interface AuthContextType {
     user: User | null;
     isLoading: boolean;
-    login: (email: string, password: string) => Promise<void>;
+    login: (id: string, password: string, comCd : string) => Promise<void>;
     logout: () => void;
     isAuthenticated: boolean;
 }
@@ -29,72 +37,61 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // 초기 로드 시 인증 상태 확인
     useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const token = getCookie('auth-token');
-
-                if (token) {
-                    // 실제로는 토큰을 검증하고 사용자 정보를 가져오는 API 호출이 필요
-                    // 여기서는 간단한 예시로 대체
-                    setUser({
-                        id: '1',
-                        name: '홍길동',
-                        email: 'user@example.com',
-                        role: 'user'
-                    });
-                }
-            } catch (error) {
-                console.error('Authentication check failed:', error);
-                deleteCookie('auth-token');
-                setUser(null);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        checkAuth();
+        console.log('Auth Provider!');
+        setIsLoading(false);
     }, []);
 
     // 로그인 함수
-    const login = async (email: string, password: string) => {
+    const login = async (id: string, password: string, comCd : string) => {
         setIsLoading(true);
 
-        try {
-            // 실제로는 백엔드 API 호출이 필요
-            // 여기서는 간단한 검증만 수행
-            if (email && password) {
-                // 성공 시 쿠키 설정 및 사용자 정보 설정
-                setCookie('auth-token', 'sample-token-value', {
-                    maxAge: 60 * 60 * 24 * 7, // 7일간 유효
-                    path: '/',
-                    secure: process.env.NODE_ENV === 'production',
-                    sameSite: 'strict'
-                });
-
-                setUser({
-                    id: '1',
-                    name: '홍길동',
-                    email,
-                    role: 'user'
-                });
-
-                router.push('/dashboard');
-            } else {
-                throw new Error('이메일과 비밀번호를 입력해주세요.');
+        if(id && password && comCd) {
+            try {
+                // 실제로는 백엔드 API 호출이 필요
+                const _result = await api_login({ userId : id, userPassword : password, comCd : comCd });
+                if(_result.responseCode === 200){
+                    const user:User = _result.data;
+                    setUser(user);
+                    sessionStorage.setItem('userId',user.userId);
+                    sessionStorage.setItem('email',user.email);
+                    sessionStorage.setItem('comCd',user.comCd);
+                    sessionStorage.setItem('userName',user.userName);
+                    router.push('/dashboard');
+                } else {
+                    console.log('Error is occured By Call Api');
+                }
+            } catch (error) {
+                console.error('Login failed:', error);
+                throw error;
+            } finally {
+                setIsLoading(false);
             }
-        } catch (error) {
-            console.error('Login failed:', error);
-            throw error;
-        } finally {
-            setIsLoading(false);
+        } else {
+            throw new Error('이메일과 비밀번호를 입력해주세요.');
         }
+
     };
 
     // 로그아웃 함수
-    const logout = () => {
-        deleteCookie('auth-token');
-        setUser(null);
-        router.push('/auth/login');
+    const logout = async () => {
+        try {
+            // 서버에 로그아웃 요청을 보내 쿠키 삭제
+            await api_logout({});
+        } catch (error) {
+            console.error('Logout API failed:', error);
+        } finally {
+            // 세션스토리지 정리
+            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('email');
+            sessionStorage.removeItem('comCd');
+            sessionStorage.removeItem('userName');
+
+            // 상태 초기화
+            setUser(null);
+
+            // 리다이렉트
+            router.push('/auth/login');
+        }
     };
 
     return (

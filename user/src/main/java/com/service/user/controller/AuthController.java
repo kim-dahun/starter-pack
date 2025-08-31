@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 import static com.service.user.constants.MessageConstants.MSG_TOKEN_VALIDATION_SUCCESS_ALERT;
+import static com.service.user.constants.UrlConstants.BASE_URL;
 
 @RestController
-@RequestMapping
+@RequestMapping(BASE_URL)
 @RequiredArgsConstructor
 @CrossOrigin
 public class AuthController {

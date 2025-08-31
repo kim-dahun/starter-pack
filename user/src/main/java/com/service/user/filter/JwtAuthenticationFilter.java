@@ -129,8 +129,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private boolean isPublicPath(String requestURI) {
-        return requestURI.contains("/users/signup") ||
-                requestURI.contains("/users/login") ||
+        return requestURI.contains("/user-service/signup") ||
+                requestURI.contains("/user-service/login") ||
                 requestURI.contains("/actuator") ||
                 requestURI.contains("/error");
     }

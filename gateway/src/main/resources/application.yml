@@ -15,13 +15,19 @@ spring:
             - RewritePath=/api/v1/user-service/(?<segment>.*), /api/v1/user-service/$\{segment}
             - name: TokenValidationFilter
               args:
-                excludedPaths: /api/v1/user-service/login,/api/v1/user-service/signup
+                excludedPaths: /api/v1/user-service/login,/api/v1/user-service/sign-up
             - name: CircuitBreaker
               args:
                 name: userServiceCircuitBreaker
                 fallbackUri: forward:/fallback
+          # 모든 HTTP 메서드 허용 명시적 설정
+          metadata:
+            methods: GET,POST,PUT,DELETE,OPTIONS
 
-        # 다른 서비스들에 대한 라우팅 설정 추가 가능
+      # Gateway 전역 타임아웃 설정
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 60s
 
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
@@ -30,10 +36,24 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
+            allowedOrigins:
+              - "http://localhost:3000"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "OPTIONS"
+            allowedHeaders:
+              - "Authorization"
+              - "Content-Type"
+              - "Accept"
+              - "Origin"
+              - "X-Requested-With"
             allowCredentials: true
+            maxAge: 3600
+        # OPTIONS preflight 요청 처리 개선
+        add-to-simple-url-handler-mapping: true
 
 # 토큰 검증 API 설정
 token:
@@ -49,3 +69,11 @@ management:
   endpoint:
     health:
       show-details: always
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: INFO
+    com.service.gateway.filter: DEBUG
+    reactor.netty.http.client: DEBUG

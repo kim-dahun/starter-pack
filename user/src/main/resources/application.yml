@@ -1,7 +1,5 @@
 server:
   port: 4000
-  servlet:
-    context-path: /api
 
 spring:
   application:
@@ -30,7 +28,7 @@ spring:
 
 # JWT 설정 추가
 jwt:
-  secret: ${JWT_SECRET:your_jwt_secret_key_should_be_at_least_32_bytes_long_for_hs512}
+  secret: ${jwt_secret:3cfa76ef0a4dbe6033bbd2100537b043b7b5c57d8b36f4a7dc6b0c20aff77e7bf7717e9c3c51461a81aebba3f7be6072d52c224ad02741a8eeed27a71277e487}
   token-validity-in-seconds: 3600
   refresh-token-validity-in-seconds: 86400
 

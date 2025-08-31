@@ -1,5 +1,6 @@
 package com.service.user.config.security;
 
+import com.service.user.constants.UrlConstants;
 import com.service.user.filter.JwtAuthenticationFilter;
 import com.service.user.jwt.JwtTokenProvider;
 import com.service.user.service.AuthServiceClient;
@@ -23,7 +24,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final CustomUserDetailService customUserDetailService;
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -32,8 +33,13 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/users/signup", "/users/login", "/actuator/**", "/error").permitAll()
-                        .requestMatchers("/users/admin/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                UrlConstants.BASE_URL+"/v1/user-service/sign-up",
+                                UrlConstants.BASE_URL +"/v1/user-service/login",
+                                UrlConstants.BASE_URL +"/v1/user-service/logout",
+                                "/actuator/**",
+                                "/error").permitAll()
+                        .requestMatchers(UrlConstants.BASE_URL +"/v1/user-service/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 // JWT 필터 추가 - authServiceClient 인수 추가
