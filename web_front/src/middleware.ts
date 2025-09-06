@@ -1,6 +1,7 @@
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
 import {api_logout} from "@/api/userApi";
+import {RequestCookie, RequestCookies} from "next/dist/compiled/@edge-runtime/cookies";
 
 // 인증이 필요한 경로 패턴
 // const protectedRoutes = ['/dashboard', '/dashboard/:path*'];
@@ -33,9 +34,9 @@ export async function middleware(request: NextRequest) {
         return response;
     }
 
-    const sessionStorage = window.sessionStorage;
-
-    const menuList = sessionStorage.getItem('menuList') ? JSON.parse(sessionStorage.getItem('menuList') as string) : [];
+    const requestCookies:RequestCookies = request.cookies;
+    const menuListCookie = requestCookies.has('menuList') ? requestCookies.get('menuList')?.value : null;
+    const menuList = menuListCookie ? JSON.parse(menuListCookie) : [];
 
     const { pathname } = request.nextUrl;
     // 사용자 인증 상태 확인 (여기서는 쿠키를 사용)
