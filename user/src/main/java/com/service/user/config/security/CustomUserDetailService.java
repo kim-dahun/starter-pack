@@ -1,7 +1,7 @@
 package com.service.user.config.security;
 
-import com.service.user.entity.id.UserInfoId;
-import com.service.user.repository.UserAuthRepository;
+import com.service.user.domain.entity.id.UserInfoId;
+import com.service.user.domain.repository.UserAuthRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

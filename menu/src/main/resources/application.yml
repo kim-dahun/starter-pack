@@ -1,0 +1,36 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: menu-service
+  datasource:
+    url: ${url}
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${username}
+    password: ${password}
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 5
+      max-lifetime: 1800000 #30min
+      idle-timeout: 600000 #10min
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: debug
+    com.service.user: debug
+    org.springframework.security: debug
+
+file:
+  dir: ${fileDir:C:\servFile}

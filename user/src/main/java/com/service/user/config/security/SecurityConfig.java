@@ -1,9 +1,7 @@
 package com.service.user.config.security;
 
-import com.service.user.constants.UrlConstants;
 import com.service.user.filter.JwtAuthenticationFilter;
-import com.service.user.jwt.JwtTokenProvider;
-import com.service.user.service.AuthServiceClient;
+import com.starter.lib.constants.UrlConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

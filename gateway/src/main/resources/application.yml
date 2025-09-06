@@ -77,3 +77,6 @@ logging:
     org.springframework.cloud.gateway: INFO
     com.service.gateway.filter: DEBUG
     reactor.netty.http.client: DEBUG
+
+file:
+  dir: ${fileDir:C:\servFile}

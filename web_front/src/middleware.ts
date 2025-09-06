@@ -1,11 +1,9 @@
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
-import api from "@/util/axios";
-import {UserResponse} from "@/contexts/AuthContext";
 import {api_logout} from "@/api/userApi";
 
 // 인증이 필요한 경로 패턴
-const protectedRoutes = ['/dashboard', '/dashboard/:path*'];
+// const protectedRoutes = ['/dashboard', '/dashboard/:path*'];
 
 // 인증 필요 없는 경로 패턴
 const publicRoutes = ['/', '/auth/login', '/auth/register'];
@@ -35,6 +33,10 @@ export async function middleware(request: NextRequest) {
         return response;
     }
 
+    const sessionStorage = window.sessionStorage;
+
+    const menuList = sessionStorage.getItem('menuList') ? JSON.parse(sessionStorage.getItem('menuList') as string) : [];
+
     const { pathname } = request.nextUrl;
     // 사용자 인증 상태 확인 (여기서는 쿠키를 사용)
     const isAuthenticated = request.cookies.has('access_token');
@@ -54,13 +56,7 @@ export async function middleware(request: NextRequest) {
     }
 
     // 인증되지 않은 사용자가 보호된 경로 접근 시 로그인 페이지로 리다이렉트
-    const isProtectedRoute = protectedRoutes.some(route => {
-        if (route.includes(':path*')) {
-            const basePath = route.replace(':path*', '');
-            return pathname.startsWith(basePath);
-        }
-        return pathname === route;
-    });
+    const isProtectedRoute = !publicRoutes.includes(pathname) && !menuList.includes(pathname);
 
     if (!isAuthenticated && isProtectedRoute) {
         return createRedirectResponse('/auth/login');

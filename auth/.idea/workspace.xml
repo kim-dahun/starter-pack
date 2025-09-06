@@ -5,37 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34ef5f50-a18c-4a73-a9ad-8b7179dbced7" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/UrlConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web_front/src/common/model/httpModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web_front/src/util/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/src/main/java/com/service/gateway/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/src/test/java/com/service/gateway/GatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/test/java/com/service/gateway/GatewayApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/restTemplate/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/restTemplate/RestTemplateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/MessageConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/constants/MessageConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/UserAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/controller/UserAuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/entity/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/entity/UserAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/jwt/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/AuthServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/UserAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/UserAuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/AuthServiceClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/service/impl/UserAuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/data/UserInfoVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/data/UserInfoVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/ResponseUserAuthVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/service/user/vo/response/ResponseUserAuthVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/test/java/com/service/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/test/java/com/service/user/UserApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_front/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/app/auth/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_front/src/contexts/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/contexts/AuthContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_front/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../web_front/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,6 +274,7 @@
       <workItem from="1756612913294" duration="47000" />
       <workItem from="1756612967114" duration="129000" />
       <workItem from="1756615511596" duration="615000" />
+      <workItem from="1757147756724" duration="19000" />
     </task>
     <servers />
   </component>
