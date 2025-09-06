@@ -1,10 +1,12 @@
 package com.service.menu.domain.entity;
 
 import com.service.menu.domain.entity.id.GroupManageId;
+import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -12,9 +14,9 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "GROUP_MANAGE", schema = "MENU_MANAGE")
-public class GroupManage {
+public class GroupManage extends CmnBaseCUDEntity {
     @Id
     @Size(max = 50)
     @NotNull

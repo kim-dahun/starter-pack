@@ -1,10 +1,12 @@
 package com.service.menu.domain.entity;
 
+import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
@@ -13,9 +15,9 @@ import java.time.Instant;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "MENU_INFO", schema = "MENU_MANAGE")
-public class MenuInfo {
+public class MenuInfo extends CmnBaseCUDEntity {
     @Id
     @jakarta.validation.constraints.Size(max = 50)
     @Column(name = "MENU_ID", nullable = false, length = 50)
@@ -33,22 +35,8 @@ public class MenuInfo {
     private String parentMenuId;
 
     @jakarta.validation.constraints.Size(max = 100)
-    @Column(name = "MULTI_INGUAL_CODE", length = 100)
-    private String multiIngualCode;
-
-    @Column(name = "CREATE_DATE")
-    private Instant createDate;
-
-    @Column(name = "UPDATE_DATE")
-    private Instant updateDate;
-
-    @jakarta.validation.constraints.Size(max = 100)
-    @Column(name = "CREATE_USER", length = 100)
-    private String createUser;
-
-    @jakarta.validation.constraints.Size(max = 100)
-    @Column(name = "UPDATE_USER", length = 100)
-    private String updateUser;
+    @Column(name = "LANG_CODE", length = 100)
+    private String langCode;
 
     @Column(name = "SORT_SEQ")
     private Integer sortSeq;

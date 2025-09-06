@@ -1,8 +1,10 @@
 package com.service.menu.domain.entity;
 
 import com.service.menu.domain.entity.id.MenuGroupAuthId;
+import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
@@ -12,9 +14,9 @@ import java.time.Instant;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "MENU_GROUP_AUTH", schema = "MENU_MANAGE")
-public class MenuGroupAuth {
+public class MenuGroupAuth extends CmnBaseCUDEntity {
     @Id
     @jakarta.validation.constraints.Size(max = 50)
     @jakarta.validation.constraints.NotNull
@@ -49,11 +51,5 @@ public class MenuGroupAuth {
     @Column(name = "PERMIT_DELETE", length = 1)
     private String permitDelete;
 
-    @Column(name = "UPDATE_DATE")
-    private Instant updateDate;
-
-    @jakarta.validation.constraints.Size(max = 50)
-    @Column(name = "UPDATE_USER", length = 50)
-    private String updateUser;
 
 }

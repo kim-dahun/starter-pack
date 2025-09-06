@@ -5,8 +5,9 @@ import com.service.user.domain.entity.id.UserInfoId;
 import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

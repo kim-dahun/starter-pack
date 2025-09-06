@@ -1,4 +1,4 @@
-package com.service.menu.domain.entity;
+package com.service.menu.domain.entity.id;
 
 import lombok.*;
 

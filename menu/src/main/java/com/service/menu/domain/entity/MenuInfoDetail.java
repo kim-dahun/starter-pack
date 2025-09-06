@@ -1,19 +1,21 @@
 package com.service.menu.domain.entity;
 
+import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "MENU_INFO_DETAIL", schema = "MENU_MANAGE")
-public class MenuInfoDetail {
+public class MenuInfoDetail extends CmnBaseCUDEntity {
     @Id
     @jakarta.validation.constraints.Size(max = 50)
     @Column(name = "MENU_DETAIL_ID", nullable = false, length = 50)

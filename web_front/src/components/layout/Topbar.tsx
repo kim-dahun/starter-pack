@@ -29,7 +29,7 @@ export default function Topbar({ toggleSidebar }: { toggleSidebar: () => void })
                 <div className="flex items-center space-x-4">
                     {user && (
                         <div className="text-sm text-gray-700 dark:text-gray-300 hidden md:block">
-                            {user.name}님 환영합니다
+                            {user.userName}님 환영합니다
                         </div>
                     )}
 

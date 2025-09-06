@@ -37,15 +37,6 @@ public class UserInfoVo {
 
     }
 
-    public UserAuth toAuthEntity() {
-        return UserAuth.builder()
-                .userId(userId)
-                .comCd(comCd)
-                .userPassword(userPassword)
-                .status(status)
-                .build();
-    }
-
     public UserInfo toEntity() {
         return UserInfo.builder()
                 .userName(userName)

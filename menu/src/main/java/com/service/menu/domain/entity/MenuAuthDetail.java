@@ -1,8 +1,10 @@
 package com.service.menu.domain.entity;
 
 import com.service.menu.domain.entity.id.MenuAuthDetailId;
+import com.starter.lib.entity.CmnBaseCUDEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.ColumnDefault;
 
 @Getter
@@ -11,9 +13,9 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "MENU_AUTH_DETAIL", schema = "MENU_MANAGE")
-public class MenuAuthDetail {
+public class MenuAuthDetail extends CmnBaseCUDEntity {
     @Id
     @jakarta.validation.constraints.Size(max = 50)
     @jakarta.validation.constraints.NotNull
