@@ -1,0 +1,11 @@
+menu/src/main/generated/com/service/menu/domain/entity/QGroupManage.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuAuth.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuAuthDetail.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuGroupAuth.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuGroupAuthDetail.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuInfo.java
+menu/src/main/generated/com/service/menu/domain/entity/QMenuInfoDetail.java
+user/src/main/generated/com/service/user/domain/entity/QComInfo.java
+user/src/main/generated/com/service/user/domain/entity/QUserAuth.java
+user/src/main/generated/com/service/user/domain/entity/QUserInfo.java
+lib/src/main/generated/com/starter/lib/entity/QCmnBaseCUDEntity.java
